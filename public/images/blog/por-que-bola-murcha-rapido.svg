@@ -1,0 +1,11 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#0052CC"/>
+  <circle cx="400" cy="170" r="90" fill="none" stroke="#FFD700" stroke-width="10"/>
+  <path d="M400 100 L430 150 L480 155 L440 190 L455 240 L400 210 L345 240 L360 190 L320 155 L370 150 Z" fill="#FFD700"/>
+  <text x="400" y="330" font-family="Roboto, Arial, sans-serif" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle">
+    5 Motivos Pelos Quais Sua Bola Murcha Rápido
+  </text>
+  <text x="400" y="365" font-family="Roboto, Arial, sans-serif" font-size="16" fill="#FFD700" text-anchor="middle">
+    Cola Bola — Blog
+  </text>
+</svg>
