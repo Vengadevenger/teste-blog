@@ -28,6 +28,7 @@ export async function generateMetadata({ params }) {
   const url = `${SITE_URL}/blog/${post.slug}`;
   const title = post.metaTitle || post.title;
   const description = post.metaDescription || post.excerpt;
+  const heroImage = post.heroImage || post.image;
 
   return {
     title,
@@ -40,13 +41,13 @@ export async function generateMetadata({ params }) {
       type: "article",
       publishedTime: post.date,
       authors: [post.author],
-      images: [{ url: `${SITE_URL}${post.image}`, width: 800, height: 400, alt: post.title }],
+      images: [{ url: `${SITE_URL}${heroImage}`, width: 800, height: 400, alt: post.title }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [`${SITE_URL}${post.image}`],
+      images: [`${SITE_URL}${heroImage}`],
     },
   };
 }
@@ -59,6 +60,7 @@ export default async function BlogPostPage({ params }) {
   const relatedPosts = getRelatedPosts(post, 3);
   const { previous, next } = getAdjacentPosts(post.slug);
   const postUrl = `${SITE_URL}/blog/${post.slug}`;
+  const heroImage = post.heroImage || post.image;
 
   const breadcrumbItems = [
     { label: "Blog", href: "/blog" },
@@ -71,7 +73,7 @@ export default async function BlogPostPage({ params }) {
     "@type": "Article",
     headline: post.title,
     description: post.excerpt,
-    image: `${SITE_URL}${post.image}`,
+    image: `${SITE_URL}${heroImage}`,
     author: { "@type": "Organization", name: post.author },
     publisher: { "@type": "Organization", name: "Cola Bola" },
     datePublished: post.date,
@@ -87,13 +89,13 @@ export default async function BlogPostPage({ params }) {
 
       <div className="blog-post-hero">
         <Image
-          src={post.image}
+          src={heroImage}
           alt={post.title}
           width={800}
           height={400}
           priority
           className="blog-post-hero-image"
-          unoptimized={post.image.endsWith(".svg")}
+          unoptimized={heroImage.endsWith(".svg")}
         />
         <div className="blog-post-hero-overlay">
           <span className="blog-post-hero-category">{post.category}</span>
